@@ -9,7 +9,8 @@ html(lang="ru")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         meta(http-equiv="X-UA-Compatible", content="ie=edge")
-        link(rel="stylesheet", href="/css/main.css")
+        link(rel="stylesheet", href="css/main.css")
+        link(rel="stylesheet", href="fonts/fonts.css")
         title Корзина
     body
         .wrapper
@@ -21,10 +22,10 @@ html(lang="ru")
                     h2 Корзина
                     ul
                     .results
-                        p Итого:
+                        p= 'Количество: '
                             span.result_count 0
-                        p Сумма:
+                        p= 'Сумма: '
                             span.result_price 0
-        script(src="/js/script.js")
+        script(src="js/script.js")
 
 

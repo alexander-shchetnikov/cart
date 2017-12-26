@@ -14,7 +14,14 @@ cart = [];
     el.querySelector('button').addEventListener('click',function (e) {
         addToCart(this.parentNode,itemObj);
     });
+    el.addEventListener('dragstart',function (e) {
+        handleDragStart(e,this,itemObj);
+    });
+    el.addEventListener('dragend',handleDragEnd);
 });
+
+document.querySelector("#cart").addEventListener('dragover',handleDragOver,false);
+document.querySelector("#cart").addEventListener('drop',handleDrop,false);
 
 function addToCart(thisProduct,itemObj) {
     var itemId = itemObj.id,
@@ -50,13 +57,11 @@ function addToCart(thisProduct,itemObj) {
 
     if(updated) renderElements()
 }
-
 function renderElements() {
     updateItems();
     updateCart();
     updateResults();
 }
-
 function updateItems() {
     var i = 0;
     [].forEach.call(document.querySelectorAll('#products li'),function(el){
@@ -70,18 +75,10 @@ function createCartElement(cartId) {
         " <h3 class=\"name\">"+cart[cartId].name+"</h3>\n" +
         " <p class=\"count\">Количество:<span>"+cart[cartId].count+"</span></p>\n" +
         " <p class=\"price\">Цена:<span>"+cart[cartId].price+"</span></p>\n" +
-        " <button>Удалить из корзины</button>\n" +
+        //" <button>Удалить из корзины</button>\n" +
         "</li>";
-
     document.querySelector('#cart ul').innerHTML += newCartElement;
-
-    [].forEach.call(document.querySelectorAll("#cart ul li button"),function (el) {
-        el.addEventListener('click',function (el) {
-            deleteItemFromCart(this.parentNode,cartId);
-        });
-    })
 }
-
 function updateCart() {
     var i = 0;
     cart.forEach(function(el){
@@ -89,7 +86,6 @@ function updateCart() {
         i++;
     });
 }
-
 function updateResults() {
     var count = 0 ,sum = 0;
     cart.forEach(function (item) {
@@ -99,7 +95,6 @@ function updateResults() {
     document.querySelector("#cart .result_count").innerHTML = count;
     document.querySelector("#cart .result_price").innerHTML = sum;
 }
-
 function deleteItemFromCart(thisElem,cartId) {
     console.log(cartId);
     console.log(cart);
@@ -109,4 +104,27 @@ function deleteItemFromCart(thisElem,cartId) {
     document.querySelector("#cart ul").removeChild(thisElem);
     renderElements();
 }
+function handleDragStart(e,thisElem,itemObj) {
+    thisElem.classList.add('draged');
+    e.dataTransfer.setData('obj',JSON.stringify(itemObj));
+    e.dataTransfer.setData('thisElem',JSON.stringify(thisElem));
+    document.querySelector("#cart").classList.add('drop_zone');
+}
+function handleDragEnd(e) {
+    this.classList.remove('draged');
+    document.querySelector("#cart").classList.remove('drop_zone');
+}
+function handleDrop(e) {
+    var itemObj =JSON.parse(e.dataTransfer.getData('obj')),
+        thisElem = document.querySelectorAll('#products li')[JSON.parse(e.dataTransfer.getData('obj')).id];
+    addToCart(thisElem,itemObj);
+}
+function handleDragOver(e) {
+    if (e.preventDefault) {
+        e.preventDefault(); // Necessary. Allows us to drop.
+    }
 
+    e.dataTransfer.dropEffect = 'move';
+
+    return false
+}

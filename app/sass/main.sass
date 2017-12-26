@@ -2,28 +2,86 @@
 @import "_colors"
 
 *
+  font-family: "Museo Sans Cyrl"
   color: $black
   line-height: normal
-html,body
-  height: 100%
 .wrapper
   width: 1000px
-  box-shadow: 0px 0px 10px transparentize(#000,0.80)
-  margin: 50px auto
-  padding: 20px
-
+  box-shadow: 0px 0px 100px transparentize(#000,0.90)
+  margin: 30px auto
+  padding: 10px 20px
+  border-radius: 5px
   .content
     display: flex
     justify-content: space-between
     > *
       width: 48%
+      padding: 10px 20px 20px 20px
       > h2
         margin-bottom: 20px
-
+        color: $grey1
 li
-  padding: 10px
+  padding: 20px
   border-radius: 5px
-  border: 1px solid transparentize($grey0,0.50)
+  box-shadow: 0px 0px 0px 2px transparentize($grey-1,0.15)
   margin-bottom: 20px
-  &:last-child
-    margin-bottom: 0px
+  background: #FFF
+  h3
+    margin-bottom: 15px
+    color: $black
+  p
+    margin-bottom: 5px
+    font-size: 13px
+  input
+    margin-top: 10px
+    margin-right: 10px
+    width: 40px
+    text-align: center
+    border: 1px solid #DDD
+    &:hover
+      border: 1px solid $blue
+    &:focus
+      border: 1px solid $blue
+      box-shadow: 0px 0px 0px 2px transparentize($blue,0.75)
+
+  input,button
+    border-radius: 5px
+    padding: 8px 15px
+    transition: 0.230s
+    transition-property: box-shadow, background-color,border-color
+  button
+    border: 1px solid $blue
+    background: $blue
+    color: #FFF
+    &:hover,&:focus
+      box-shadow: 0px 0px 0px 2px transparentize($blue,0.75)
+
+#products
+  li
+    transition: 0.130s
+    transition-property: background-color,box-shadow
+    &:last-child
+      margin-bottom: 0px
+    &.draged
+      background: transparentize($green,0.90)
+      box-shadow: 0px 0px 0px 2px $green
+#cart
+  border-radius: 5px
+  border: 1px dashed transparentize($blue,1)
+  transition: 0.230s
+  transition-property: background-color,border-color
+  &.drop_zone
+    background: transparentize($blue,0.90)
+    border: 1px dashed $blue
+    transition: 0.230s
+    transition-property: background-color
+    &:hover
+      background: transparentize($blue,0.70)
+  .results
+    display: flex
+    justify-content: space-between
+    p
+      font-weight: 300
+      span
+        font-weight: 900
+        color: $grey1
