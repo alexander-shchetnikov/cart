@@ -1,0 +1,14 @@
+
+mixin productList(products)
+    ul
+        - var i = 0
+        for product in products
+            li(draggable='true')
+                h3.name= product.name
+                p.count Количество:
+                    span= product.count
+                p.price Цена:
+                    span= product.price
+                input(type='number', min='1', value="1")
+                button(data-item-id=i) Добавить
+                - i++

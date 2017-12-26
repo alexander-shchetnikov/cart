@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="/css/main.css"/>
+    <title>Корзина</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="content">
+        <div id="products">
+          <h2>Список товаров</h2>
+          <ul>
+            <li draggable="true">
+              <h3 class="name">Баклажаны</h3>
+              <p class="count">Количество:<span>15</span></p>
+              <p class="price">Цена:<span>20</span></p>
+              <input type="number" min="1" value="1"/>
+              <button data-item-id="0">Добавить</button>
+            </li>
+            <li draggable="true">
+              <h3 class="name">Морковь</h3>
+              <p class="count">Количество:<span>40</span></p>
+              <p class="price">Цена:<span>30</span></p>
+              <input type="number" min="1" value="1"/>
+              <button data-item-id="1">Добавить</button>
+            </li>
+            <li draggable="true">
+              <h3 class="name">Картофель</h3>
+              <p class="count">Количество:<span>905</span></p>
+              <p class="price">Цена:<span>10</span></p>
+              <input type="number" min="1" value="1"/>
+              <button data-item-id="2">Добавить</button>
+            </li>
+          </ul>
+        </div>
+        <div id="cart">
+          <h2>Корзина</h2>
+          <ul></ul>
+          <div class="results">
+            <p>Итого:<span class="result_count">0</span></p>
+            <p>Сумма:<span class="result_price">0</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
