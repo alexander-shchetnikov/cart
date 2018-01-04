@@ -7,18 +7,18 @@
   list-style-type: none; }
 
 * {
+  font-family: "Museo Sans Cyrl";
   color: #363636;
   line-height: normal; }
 
-html, body {
-  height: 100%; }
-
 .wrapper {
   width: 1000px;
-  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  margin: 50px auto;
-  padding: 20px; }
+  -webkit-box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  padding: 10px 20px;
+  -webkit-border-radius: 5px;
+          border-radius: 5px; }
   .wrapper .content {
     display: -webkit-box;
     display: -webkit-flex;
@@ -29,15 +29,106 @@ html, body {
         -ms-flex-pack: justify;
             justify-content: space-between; }
     .wrapper .content > * {
-      width: 48%; }
+      width: 48%;
+      padding: 10px 20px 20px 20px; }
       .wrapper .content > * > h2 {
-        margin-bottom: 20px; }
+        margin-bottom: 20px;
+        color: #787878; }
 
 li {
-  padding: 10px;
+  padding: 20px;
   -webkit-border-radius: 5px;
           border-radius: 5px;
-  border: 1px solid rgba(158, 158, 158, 0.5);
-  margin-bottom: 20px; }
-  li:last-child {
+  -webkit-box-shadow: 0px 0px 0px 2px rgba(246, 246, 246, 0.85);
+          box-shadow: 0px 0px 0px 2px rgba(246, 246, 246, 0.85);
+  margin-bottom: 20px;
+  background: #FFF; }
+  li h3 {
+    margin-bottom: 15px;
+    color: #363636; }
+  li p {
+    margin-bottom: 5px;
+    font-size: 13px; }
+  li input {
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 40px;
+    text-align: center;
+    border: 1px solid #DDD; }
+    li input:hover {
+      border: 1px solid #0D99FF; }
+    li input:focus {
+      border: 1px solid #0D99FF;
+      -webkit-box-shadow: 0px 0px 0px 2px rgba(13, 153, 255, 0.25);
+              box-shadow: 0px 0px 0px 2px rgba(13, 153, 255, 0.25); }
+  li input, li button {
+    -webkit-border-radius: 5px;
+            border-radius: 5px;
+    padding: 8px 15px;
+    -webkit-transition: 0.230s;
+    -o-transition: 0.230s;
+    transition: 0.230s;
+    -webkit-transition-property: background-color,border-color, -webkit-box-shadow;
+    transition-property: background-color,border-color, -webkit-box-shadow;
+    -o-transition-property: box-shadow, background-color,border-color;
+    transition-property: box-shadow, background-color,border-color;
+    transition-property: box-shadow, background-color,border-color, -webkit-box-shadow; }
+  li button {
+    border: 1px solid #0D99FF;
+    background: #0D99FF;
+    color: #FFF; }
+    li button:hover, li button:focus {
+      -webkit-box-shadow: 0px 0px 0px 2px rgba(13, 153, 255, 0.25);
+              box-shadow: 0px 0px 0px 2px rgba(13, 153, 255, 0.25); }
+
+#products li {
+  -webkit-transition: 0.130s;
+  -o-transition: 0.130s;
+  transition: 0.130s;
+  -webkit-transition-property: background-color,-webkit-box-shadow;
+  transition-property: background-color,-webkit-box-shadow;
+  -o-transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow;
+  transition-property: background-color,box-shadow,-webkit-box-shadow; }
+  #products li:last-child {
     margin-bottom: 0px; }
+  #products li.draged {
+    background: rgba(7, 227, 148, 0.1);
+    -webkit-box-shadow: 0px 0px 0px 2px #07E394;
+            box-shadow: 0px 0px 0px 2px #07E394; }
+
+#cart {
+  -webkit-border-radius: 5px;
+          border-radius: 5px;
+  border: 1px dashed rgba(13, 153, 255, 0);
+  -webkit-transition: 0.230s;
+  -o-transition: 0.230s;
+  transition: 0.230s;
+  -webkit-transition-property: background-color,border-color;
+  -o-transition-property: background-color,border-color;
+  transition-property: background-color,border-color; }
+  #cart.drop_zone {
+    background: rgba(13, 153, 255, 0.1);
+    border: 1px dashed #0D99FF;
+    -webkit-transition: 0.230s;
+    -o-transition: 0.230s;
+    transition: 0.230s;
+    -webkit-transition-property: background-color;
+    -o-transition-property: background-color;
+    transition-property: background-color; }
+    #cart.drop_zone:hover {
+      background: rgba(13, 153, 255, 0.3); }
+  #cart .results {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+    #cart .results p {
+      font-weight: 300; }
+      #cart .results p span {
+        font-weight: 900;
+        color: #787878; }

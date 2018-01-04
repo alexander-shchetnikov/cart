@@ -110,6 +110,11 @@ gulp.task('build',['clean','pug','sass'],function(){
     ])
         .pipe(gulp.dest('dist/css'));
 
+    var build_js = gulp.src([
+        'app/js/*.js'
+    ])
+        .pipe(gulp.dest('dist/js'));
+
     var build_fonts = gulp.src('app/fonts/**/*')
         .pipe(gulp.dest('dist/fonts'));
 
